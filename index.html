@@ -2,49 +2,114 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Triffid Type Tester</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Triffid Carnivore Animation</title>
+  <style>
+    @font-face {
+      font-family: 'TriffidVF';
+      src: url('TriffidCarnVF.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'TriffidBloomer';
+      src: url('Triffid-BloomerRg.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'TriffidKiller';
+      src: url('Triffid-KillerRg.woff2') format('woff2');
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f5dfcd;
+      font-family: serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .animated-text {
+      font-family: 'TriffidVF';
+      font-size: 72px;
+      font-variation-settings: "CRNV" 0;
+      text-align: center;
+      animation: carnLoop 6s infinite alternate ease-in-out;
+    }
+
+    @keyframes carnLoop {
+      from {
+        font-variation-settings: "CRNV" 0;
+      }
+      to {
+        font-variation-settings: "CRNV" 900;
+      }
+    }
+
+    .slider-labels {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .label-start, .label-end {
+      font-size: 24px;
+      margin: 0 20px;
+    }
+
+    .label-start {
+      font-family: 'TriffidBloomer';
+    }
+
+    .label-end {
+      font-family: 'TriffidKiller';
+    }
+
+    .slider-track {
+      width: 200px;
+      height: 2px;
+      background: black;
+      position: relative;
+    }
+
+    .slider-dot {
+      width: 16px;
+      height: 16px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      top: -7px;
+      animation: moveDot 6s infinite alternate ease-in-out;
+    }
+
+    @keyframes moveDot {
+      from {
+        left: 0%;
+      }
+      to {
+        left: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <div class="tester">
-    <!-- Weight Axis Tester -->
-    <div class="test-box">
-      <div class="controls">
-        <div class="control-group">
-          <label for="weightRange">Weight</label>
-          <input type="range" id="weightRange" min="100" max="900" value="400" />
-        </div>
-      </div>
-      <div class="sample" id="weightSample" contenteditable>Triffid</div>
-    </div>
-
-    <!-- Carnivore Axis Tester -->
-    <div class="test-box">
-      <div class="controls">
-        <div class="control-group">
-          <label for="crnvRange">Carnivore</label>
-          <input type="range" id="crnvRange" min="0" max="100" value="0" />
-        </div>
-      </div>
-      <div class="sample" id="crnvSample" contenteditable>Triffid</div>
-    </div>
+  <div class="animated-text">
+    {HERE COMES}<br>
+    THE TYPE<br>
+    COMPOSITION
   </div>
 
-  <script>
-    const weightRange = document.getElementById('weightRange');
-    const weightSample = document.getElementById('weightSample');
-    weightRange.addEventListener('input', () => {
-      weightSample.style.fontVariationSettings = `"wght" ${weightRange.value}, "CRNV" 0`;
-    });
-
-    const crnvRange = document.getElementById('crnvRange');
-    const crnvSample = document.getElementById('crnvSample');
-    crnvRange.addEventListener('input', () => {
-      crnvSample.style.fontVariationSettings = `"wght" 400, "CRNV" ${crnvRange.value}`;
-    });
-  </script>
+  <div class="slider-labels">
+    <span class="label-start">Aa</span>
+    <div class="slider-track">
+      <div class="slider-dot"></div>
+    </div>
+    <span class="label-end">Aa</span>
+  </div>
 
 </body>
 </html>
