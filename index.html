@@ -55,13 +55,14 @@
       justify-content: center;
       align-items: center;
       margin-top: 20px;
-      width: 90%;
-      max-width: 500px;
+      width: 100%;
+      padding: 0 1em;
+      box-sizing: border-box;
     }
 
     .label-start, .label-end {
       font-size: 40px;
-      margin: 0 20px;
+      margin: 0 12px;
     }
 
     .label-start {
@@ -73,13 +74,12 @@
     }
 
     .slider-track {
-      width: 100%;
-      max-width: 300px;
-      min-width: 200px;
+      flex: 1;
       height: 2px;
       background: black;
       position: relative;
       margin: 0 1em;
+      max-width: 300px;
     }
 
     .slider-dot {
@@ -98,12 +98,6 @@
       }
       to {
         left: 100%;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .slider-track {
-        max-width: 400px;
       }
     }
   </style>
