@@ -6,7 +6,7 @@
   <style>
     @font-face {
       font-family: 'TriffidVF';
-      src: url('TriffidCarnVF.woff2') format('woff2');
+      src: url('CarnVF.woff2') format('woff2');
     }
 
     @font-face {
@@ -23,7 +23,7 @@
       margin: 0;
       padding: 0;
       background: #f5dfcd;
-      font-family: serif;
+      font-family: sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -33,11 +33,12 @@
 
     .animated-text {
       font-family: 'TriffidVF';
-      font-size: 12vw;
-      line-height: 1.0;
+      font-size: 72px;
       font-variation-settings: "CRNV" 0;
       text-align: center;
       animation: carnLoop 6s infinite alternate ease-in-out;
+      line-height: 1.1;
+      padding: 0 1em;
     }
 
     @keyframes carnLoop {
@@ -74,6 +75,7 @@
     .slider-track {
       width: 100%;
       max-width: 300px;
+      min-width: 200px;
       height: 2px;
       background: black;
       position: relative;
@@ -98,6 +100,12 @@
         left: 100%;
       }
     }
+
+    @media (min-width: 768px) {
+      .slider-track {
+        max-width: 400px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -118,4 +126,5 @@
 
 </body>
 </html>
+
 
